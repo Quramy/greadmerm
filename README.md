@@ -2,24 +2,26 @@
 
 Locally preview your markdown, Github style.
 
-![](https://dl.dropboxusercontent.com/u/4034363/greadme.png)
-
 ## Installation
 
 via npm:
 
-    $ npm install -g greadme
+```sh
+$ npm install -g greadmerm
+```
 
 
 ## Usage
 
-    $ greadme [path/to/some.markdown]
+```
+$ greadmerm [path/to/some.markdown]
 
-       view your markdown at http://localhost:8124/
-       press CTRL+C to quit
+   view your markdown at http://localhost:8124/
+   press CTRL+C to quit
+```
 
-Execute `greadme` passing an optional path to a markdown file and it will be parsed and served from a locally running
-http server with Github styling applied. When no file path is specified, `greadme` displays a file browser of the
+Execute `greadmerm` passing an optional path to a markdown file and it will be parsed and served from a locally running
+http server with Github styling applied. When no file path is specified, `greadmerm` displays a file browser of the
 current directory, similar to Github.
 
 
@@ -35,18 +37,37 @@ Files with the following extensions are rendered.
 The default port is `8124` and the default host is `localhost`. You can change these settings by passing the `--port`
 and `--host` option. For example:
 
-
-    $ greadme --host 127.0.0.0 --port 7220
-
+```sh
+$ greadmerm --host 127.0.0.0 --port 7220
+```
 
 ## Notes
 
+### Styling
+
 An attempt is made to use the [Github markdown rendering api](http://developer.github.com/v3/markdown/) and Githubs stylesheets. If the attempt fails we fall back to rendering locally.
 
+### Mermaid diagrams
 
-## Contributors
+[Mermaid diagrams](https://mermaid.js.org/) are also available.
 
-https://github.com/aheckmann/greadme/graphs/contributors
+```text
+flowchart LR
+
+greadmerm -- depends --> mermaid[@mermaid-js/mermaid-cli]
+mermaid -- depends --> puppeteer
+```
+
+```mermaid
+flowchart LR
+
+greadmerm -- depends --> mermaid[@mermaid-js/mermaid-cli]
+mermaid -- depends --> puppeteer
+```
+
+## Acknowledgment
+
+This repository is forked from https://github.com/aheckmann/greadme .
 
 ## License
 

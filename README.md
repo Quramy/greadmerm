@@ -54,14 +54,14 @@ An attempt is made to use the [Github markdown rendering api](http://developer.g
 ```text
 flowchart LR
 
-greadmerm -- depends --> mermaid[@mermaid-js/mermaid-cli]
+greadmerm -- depends --> mermaid[mermaid-cli]
 mermaid -- depends --> puppeteer
 ```
 
 ```mermaid
 flowchart LR
 
-greadmerm -- depends --> mermaid[@mermaid-js/mermaid-cli]
+greadmerm -- depends --> mermaid[mermaid-cli]
 mermaid -- depends --> puppeteer
 ```
 

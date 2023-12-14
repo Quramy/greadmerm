@@ -62,14 +62,17 @@ app.use('/__diagram__', function (req, res, next) {
 });
 app.use(function (req, res, next) {
   if (fileArg) {
-    render(fs.readFileSync(path.join(process.cwd(), fileArg), 'utf8'), function (err, markdown) {
-      if (err) return next(err);
-      res.render(viewPath, {
-        css: css,
-        markdown: markdown,
-        dir: false
+    const contents = fs.readFileSync(path.join(process.cwd(), fileArg), 'utf8');
+    processMermaidContent(contents).then(processedContents => {
+      render(processedContents, function (err, markdown) {
+        if (err) return next(err);
+        res.render(viewPath, {
+          css: css,
+          markdown: markdown,
+          dir: false
+        });
       });
-    });
+    })
   } else {
     var p = path.join(process.cwd(), req.url.substring(1));
     var stat = fs.statSync(p);

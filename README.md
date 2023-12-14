@@ -1,4 +1,4 @@
-# greadme
+# greadmerm
 
 Locally preview your markdown, Github style.
 
@@ -50,5 +50,5 @@ https://github.com/aheckmann/greadme/graphs/contributors
 
 ## License
 
-[MIT](https://github.com/aheckmann/greadme/blob/master/LICENSE)
+[MIT](https://github.com/quramy/greadmerm/blob/master/LICENSE)
 

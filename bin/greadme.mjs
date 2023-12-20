@@ -188,7 +188,8 @@ async function processMermaidContent(contents) {
     const cache = renderedDiagrams.get(key);
     if (!cache || cache.mermaidDefinition !== mermaidDefinition) {
       images.push(renderMermaid(browser, mermaidDefinition, 'svg').then(({ title = `diagram_${index}`, data }) => {
-        const svgText = data.toString().replace(/viewBox="([^"]*)"/, (hit, vb) => `${hit} height="${vb.split(" ").pop()}"`);
+        const dataString = data.toString()
+        const svgText = /height="[^"]*"/.test(dataString) ? dataString : dataString.replace(/viewBox="([^"]*)"/, (hit, vb) => `${hit} height="${vb.split(" ").pop()}"`);
         renderedDiagrams.set(key, {
           title,
           data: svgText,

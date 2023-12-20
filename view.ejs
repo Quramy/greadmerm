@@ -14,7 +14,7 @@
         return;
       }
 
-      const hash = location.hash.substring(1).toLowerCase();
+      const hash = decodeURIComponent(location.hash.substring(1)).toLowerCase();
       const element = document.querySelector(`#user-content-${hash}`);
       if (element) {
         element.scrollIntoView();
